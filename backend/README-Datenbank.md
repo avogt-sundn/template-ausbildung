@@ -7,8 +7,19 @@
     ````bash
     docker compose up -d
     ````
+## Admin-Zugriff auf die Datenbank mit Adminer (einfach)
 
-## Admin-Zugriff auf die Datenbank
+1. Starte Deinen lokalen Browser und gehe auf die URL <http://localhost:9009/>
+
+    ![Click Add New Server](.images/SCR-20230329-kuz.png)
+
+    * Wähle Datenbanksystem `PostgreSQL`
+    * Server: `postgres`
+    * Benutzer: `postgres`
+    * Passwort: `password`
+    * Datenbank: `tasks`
+
+## Admin-Zugriff auf die Datenbank mit PgAdmin (komplex)
 
 1. Starte Deinen lokalen Browser und gehe auf die URL <http://localhost:9008/>
 
