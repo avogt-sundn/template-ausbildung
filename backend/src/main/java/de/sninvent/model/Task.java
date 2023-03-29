@@ -1,13 +1,14 @@
 package de.sninvent.model;
 
-import java.util.ArrayList;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 @Entity
-public class ToDoList extends PanacheEntity {
+public class Task extends PanacheEntity {
     public int id;
-    public ArrayList<ToDoEntry> entries;
+    public String name;
+    public LocalDateTime creation;
 }
