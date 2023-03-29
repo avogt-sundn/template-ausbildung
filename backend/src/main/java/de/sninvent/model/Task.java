@@ -6,7 +6,6 @@ import java.util.UUID;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
@@ -20,7 +19,4 @@ public class Task extends PanacheEntityBase {
     public boolean done;
     public String description;
     public LocalDateTime timestamp;
-
-    @ManyToOne
-    public TaskList list;
 }
