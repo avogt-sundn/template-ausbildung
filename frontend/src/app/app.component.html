@@ -1,2 +1,5 @@
-<mat-toolbar color="primary">ToDo-App</mat-toolbar>
-Frontend Works!
+<mat-toolbar color="primary">
+  <a mat-button [routerLink]="['tasklist/dashboard']">ToDo-Listen</a>
+  <a mat-button [routerLink]="['tasklist/new']">Neue ToDo-Listen</a>
+</mat-toolbar>
+<router-outlet></router-outlet>
