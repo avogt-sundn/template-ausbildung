@@ -10,3 +10,12 @@ Dies ist ein monorepo, denn es fasst mehrere Teilprojekte in einem git repositor
 ## Wie beginne ich die Entwicklung
 
 ## Deployment
+
+Starte die Applikation mit Datenbank und Datenbank-Tool mit diesem Kommando:
+
+    ````bash
+    docker compose up -d
+    ````
+
+- Im Datenbank-Tool muss die Datenbank verbindung eingerichtet werden.
+  - [Gehe dahin](backend/README-Datenbank.md)
