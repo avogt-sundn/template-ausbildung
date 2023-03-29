@@ -1,16 +1,27 @@
 package de.sninvent;
 
+import java.util.List;
+import java.util.UUID;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+import javax.ws.rs.PathParam;
+
+import de.sninvent.model.TaskList;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 @Path("/list")
 public class TaskListResource {
     
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String hello() {
-        return "Hello from RESTEasy Reactive";
+    @Path("/all")
+    public List<PanacheEntityBase> retrieveAll() {
+        return TaskList.listAll();
+    }
+
+    @GET
+    @Path("/{id}")
+    public PanacheEntityBase retrieveSingle(@PathParam("id") UUID id) {
+        return TaskList.findById(id);
     }
 }
