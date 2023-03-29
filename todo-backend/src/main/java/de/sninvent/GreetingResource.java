@@ -1,4 +1,4 @@
-package org.acme;
+package de.sninvent;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

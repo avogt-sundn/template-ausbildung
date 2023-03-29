@@ -1,4 +1,4 @@
-package org.acme;
+package de.sninvent;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
