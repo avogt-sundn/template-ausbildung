@@ -16,7 +16,7 @@ public class Task extends PanacheEntityBase {
     @GeneratedValue(generator = "UUID")
     public UUID id;
 
-    public boolean done;
+    public boolean done = false;
     public String description;
-    public LocalDateTime timestamp;
+    public LocalDateTime timestamp = LocalDateTime.now();
 }

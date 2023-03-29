@@ -9,21 +9,20 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
+import de.sninvent.model.Task;
 import de.sninvent.model.TaskList;
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
-@Path("/list")
+@Path("/lists")
 public class TaskListResource {
     
     @GET
-    @Path("/all")
-    public List<PanacheEntityBase> retrieveAll() {
+    public List<TaskList> getAll() {
         return TaskList.listAll();
     }
 
     @GET
     @Path("/{id}")
-    public PanacheEntityBase retrieveSingle(@PathParam("id") UUID id) {
+    public TaskList getSingle(@PathParam("id") UUID id) {
         return TaskList.findById(id);
     }
 
@@ -33,4 +32,15 @@ public class TaskListResource {
         taskList.persist();
         return taskList;
     }
+
+    @POST
+    @Transactional
+    @Path("/{id}/task")
+    public TaskList addTaskToList(@PathParam("id") UUID id, Task task){
+        TaskList list = TaskList.findById(id);
+        list.tasks.add(task);;
+        list.persist();
+        return list;
+    }
+
 }
