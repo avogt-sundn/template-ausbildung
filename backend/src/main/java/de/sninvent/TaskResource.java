@@ -1,6 +1,7 @@
 package de.sninvent;
 
 import javax.transaction.Transactional;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 
@@ -18,6 +19,12 @@ public class TaskResource {
         task.timestamp = taskToUpdate.timestamp;
         task.persist();
         return task;
+    }
+
+    @DELETE
+    @Transactional
+    public void delete(Task taskToDelete) {
+        Task.deleteById(taskToDelete.id);
     }
 
 }
