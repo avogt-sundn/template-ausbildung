@@ -13,7 +13,6 @@ import javax.ws.rs.PathParam;
 
 import de.sninvent.model.Task;
 import de.sninvent.model.TaskList;
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 @Path("/lists")
 public class TaskListResource {
