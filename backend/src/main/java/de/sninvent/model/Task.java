@@ -22,5 +22,5 @@ public class Task extends PanacheEntityBase {
     public LocalDateTime timestamp;
 
     @ManyToOne
-    public TaskList listUuid;
+    public TaskList list;
 }
