@@ -3,7 +3,9 @@ package de.sninvent;
 import java.util.List;
 import java.util.UUID;
 
+import javax.transaction.Transactional;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
@@ -23,5 +25,12 @@ public class TaskListResource {
     @Path("/{id}")
     public PanacheEntityBase retrieveSingle(@PathParam("id") UUID id) {
         return TaskList.findById(id);
+    }
+
+    @POST
+    @Transactional
+    public TaskList addTaskList(TaskList taskList){
+        taskList.persist();
+        return taskList;
     }
 }
