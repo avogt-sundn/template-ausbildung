@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  organization-service:
+    build:
+      context: ./backend
+      dockerfile: ./src/main/docker/Dockerfile.jvm.multistaged
+    image: backend
+    depends_on:
+      - postgres
+    expose:
+      - 8080
+    mem_limit: 512m
+    mem_reservation: 128M
+
+  postgres:
+    image: postgres:14.1
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: tasks
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 10s
+      timeout: 30s
+      retries: 5
+    mem_limit: 512m
+    mem_reservation: 128M
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - 9008:80
+    expose:
+      - 80
+    mem_limit: 512m
+    mem_reservation: 128M
