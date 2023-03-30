@@ -12,6 +12,8 @@ services:
       - 8080:8080
     mem_limit: 512m
     mem_reservation: 128M
+    environment:
+      QUARKUS_LAUNCH_DEVMODE: true
 
   postgres:
     image: postgres:14.1
