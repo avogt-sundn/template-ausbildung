@@ -1,1 +1,11 @@
-<p>task-list-dashboard works!</p>
+<mat-card *ngFor="let taskList of taskLists$ | async">
+  <mat-card-header>
+    <mat-card-title>{{taskList.name}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <tod-tasks [tasks]="taskList.tasks"></tod-tasks>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button [routerLink]="['/tasklist', taskList.id]">Öffnen</button>
+  </mat-card-actions>
+</mat-card>

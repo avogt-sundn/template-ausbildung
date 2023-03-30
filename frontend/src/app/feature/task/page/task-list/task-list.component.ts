@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -6,8 +7,15 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.scss']
+  styleUrls: ['./task-list.component.scss'],
 })
-export class TaskListComponent {
+export class TaskListComponent implements OnInit {
+  id = '';
+  private route = inject(ActivatedRoute);
 
+  ngOnInit() {
+    this.route.paramMap.subscribe((paramMap) => {
+      this.id = paramMap.get('id') ?? '';
+    });
+  }
 }

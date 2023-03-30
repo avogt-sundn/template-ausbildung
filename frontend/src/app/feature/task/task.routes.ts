@@ -11,5 +11,5 @@ export const taskRoutes: Routes = [
   },
   {path: 'dashboard', component: TaskListDashboardComponent},
   {path: 'new', component: TaskListNewComponent},
-  {path: 'list/:id', component: TaskListComponent},
+  {path: ':id', component: TaskListComponent},
 ];
