@@ -1,6 +1,6 @@
 package de.sninvent.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.UUID;
 
 import javax.persistence.Entity;
@@ -18,5 +18,5 @@ public class Task extends PanacheEntityBase {
 
     public boolean done = false;
     public String description;
-    public LocalDateTime timestamp = LocalDateTime.now();
+    public LocalDate dueDate = LocalDate.now();
 }

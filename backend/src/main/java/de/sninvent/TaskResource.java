@@ -19,7 +19,7 @@ public class TaskResource {
         Task task = Task.findById(taskToUpdate.id);
         task.description = taskToUpdate.description;
         task.done = taskToUpdate.done;
-        task.timestamp = taskToUpdate.timestamp;
+        task.dueDate = taskToUpdate.dueDate;
         task.persist();
         return task;
     }

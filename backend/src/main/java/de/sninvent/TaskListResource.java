@@ -56,6 +56,7 @@ public class TaskListResource {
     @Transactional
     @Path("/{listId}/task")
     public TaskList addTaskToList(@PathParam("listId") UUID listId, Task task) {
+        task.persist();
         TaskList list = TaskList.findById(listId);
         list.tasks.add(task);
         list.persist();

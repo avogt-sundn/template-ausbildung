@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -20,7 +21,7 @@ public class TaskList extends PanacheEntityBase {
 
     public String name;
     
-    @OneToMany(orphanRemoval = true)
+    @OneToMany(orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "list_id")
     public List<Task> tasks;
 }
