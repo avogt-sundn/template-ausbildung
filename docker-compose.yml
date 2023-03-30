@@ -8,8 +8,8 @@ services:
     image: backend
     depends_on:
       - postgres
-    expose:
-      - 8080
+    ports:
+      - 8080:8080
     mem_limit: 512m
     mem_reservation: 128M
 
