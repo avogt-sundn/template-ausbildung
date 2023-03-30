@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  organization-service:
+  backend:
     build:
       context: ./backend
       dockerfile: ./src/main/docker/Dockerfile.jvm.multistaged
