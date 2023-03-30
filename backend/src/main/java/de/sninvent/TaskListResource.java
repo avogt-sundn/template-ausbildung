@@ -14,10 +14,11 @@ import javax.ws.rs.PathParam;
 import de.sninvent.model.Task;
 import de.sninvent.model.TaskList;
 
-@Path("/lists")
+@Path("/list")
 public class TaskListResource {
 
     @GET
+    @Path("/all")
     public List<TaskList> getAll() {
         return TaskList.listAll();
     }
@@ -51,11 +52,9 @@ public class TaskListResource {
         TaskList.deleteById(id);
     }
 
-    // TASKS
-
     @POST
     @Transactional
-    @Path("/{listId}/tasks")
+    @Path("/{listId}/task")
     public TaskList addTaskToList(@PathParam("listId") UUID listId, Task task) {
         TaskList list = TaskList.findById(listId);
         list.tasks.add(task);
@@ -63,21 +62,4 @@ public class TaskListResource {
         return list;
     }
 
-    // @PUT
-    // @Transactional
-    // @Path("/{listId}/tasks/{taskId}")
-    // public Task updateTask(@PathParam("listId") UUID listId, @PathParam("taskId") UUID taskId, Task taskToUpdate) {
-    //     Task task = Task.findById(taskId);
-    //     task.description = taskToUpdate.description;
-    //     task.done = taskToUpdate.done;
-    //     task.timestamp = taskToUpdate.timestamp;
-    //     task.persist();
-    //     return task;
-    // }
-
-    // @DELETE
-    // @Transactional
-    // public void delete(@PathParam("listId") UUID listId, @PathParam("taskId") UUID taskId) {
-    //     Task.deleteById(taskId);
-    // }
 }
