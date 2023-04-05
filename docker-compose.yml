@@ -1,7 +1,10 @@
 version: "3.8"
 
-services:
+networks:
+  default:
+    name: docker-default-network
 
+services:
   postgres:
     image: postgres:14.1
     environment:

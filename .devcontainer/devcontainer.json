@@ -40,6 +40,7 @@
     "initializeCommand": "touch ${localEnv:HOME}/.vscode/.zsh_history;docker network create docker-default-network || echo Fine. Using existing network.",
     "postCreateCommand": "npm install -g @angular/cli; sudo chmod ugo+w -R /home/vscode/.m2",
     "runArgs": [
+        "--network=docker-default-network",
         "--hostname=${localWorkspaceFolderBasename}"
     ], // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
     "remoteUser": "vscode",
