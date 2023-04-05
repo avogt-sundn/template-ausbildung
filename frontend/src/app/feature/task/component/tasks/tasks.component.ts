@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatListModule } from '@angular/material/list';
-import { Task } from '../../task/task.model';
+import { Task } from '../../model/task.model';
 
 @Component({
   selector: 'tod-tasks',
