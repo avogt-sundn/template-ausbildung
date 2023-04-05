@@ -30,6 +30,7 @@ Zu Beginn jeder Arbeitssitzung führst Du diese Schritte aus:
 - beginne die Java-Entwicklung mit dem Starten des Live Reload Modus:
 
     ````bash
+    # vscode ➜ /workspaces/template-ausbildung (main) $
     cd backend
     ./mvnw quarkus:dev
     ````
@@ -39,6 +40,7 @@ Zu Beginn jeder Arbeitssitzung führst Du diese Schritte aus:
 - beginne die Angular-Entwicklung mit dem Starten des Live Reload Modus:
 
     ````bash
+    # vscode ➜ /workspaces/template-ausbildung (main) $
     cd frontend
     npm install -g @angular/cli
     npm install
