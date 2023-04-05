@@ -10,8 +10,8 @@
             // Use the -bullseye variants on local arm64/Apple Silicon.
             "VARIANT": "17-bullseye",
             // Options
-            "INSTALL_MAVEN": "false",
             // no maven here: use maven wrapper instead `./mvnw`
+            "INSTALL_MAVEN": "false",
             "MAVEN_VERSION": "3.8.6",
             "INSTALL_GRADLE": "false",
             "NODE_VERSION": "lts/*"
@@ -30,29 +30,14 @@
         "source=${env:HOME}${env:USERPROFILE}/.kube,target=/home/vscode/.kube,type=bind"
     ],
     // Add the IDs of extensions you want installed when the container is created.
-    "extensions": [
-        "dbaeumer.vscode-eslint",
-        "vscjava.vscode-java-pack",
-        "esbenp.prettier-vscode",
-        "mhutchie.git-graph",
-        "donjayamanne.githistory",
-        "waderyan.gitblame",
-        "SonarSource.sonarlint-vscode",
-        "DotJoshJohnson.xml",
-        "redhat.vscode-xml",
-        "redhat.vscode-quarkus"
-    ],
     "containerEnv": {
         "GRAALVM_HOME": "/opt/mandrel",
-        "JAVA_HOME": "/usr/lib/jvm/msopenjdk-current"
+        "JAVA_HOME": "/usr/lib/jvm/msopenjdk-current",
+        "CHROME_BIN": "/usr/bin/chromium"
     },
     // Use 'initializeCommand' to run commands on the host before container gets created.
     "initializeCommand": "touch ${localEnv:HOME}/.vscode/.zsh_history;docker network create docker-default-network || echo Fine. Using existing network.",
-    "containerEnv": {
-        "CHROME_BIN": "/usr/bin/chromium"
-    },
- //   "postCreateCommand": "sudo chown -R vscode.vscode /home/vscode/.m2",
-    "postCreateCommand": "npm install -g @angular/cli",
+    "postCreateCommand": "npm install -g @angular/cli; sudo chmod ugo+w -R /home/vscode/.m2",
     "runArgs": [
         "--hostname=${localWorkspaceFolderBasename}"
     ], // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
@@ -60,6 +45,22 @@
     "features": {
         "docker-from-docker": {
             "docker-from-docker": "20.10"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "vscjava.vscode-java-pack",
+                "esbenp.prettier-vscode",
+                "mhutchie.git-graph",
+                "donjayamanne.githistory",
+                "waderyan.gitblame",
+                "SonarSource.sonarlint-vscode",
+                "DotJoshJohnson.xml",
+                "redhat.vscode-xml",
+                "redhat.vscode-quarkus"
+            ],
         }
     }
 }

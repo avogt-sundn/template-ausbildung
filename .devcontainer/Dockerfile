@@ -60,4 +60,6 @@ RUN cd  /opt/ && git clone https://github.com/ahmetb/kubectx \
     && ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx \
     && ln -s /opt/kubectx/kubens /usr/local/bin/kubens
 
-EXPOSE 8080
+# Chromium for unit tests
+RUN apt-get update && apt-get install -y chromium
+
