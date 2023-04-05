@@ -1,21 +1,6 @@
 version: "3.8"
 
 services:
-  backend:
-    build:
-      context: ./backend
-      dockerfile: ./src/main/docker/Dockerfile.jvm.multistaged
-    image: backend
-    depends_on:
-      - postgres
-    ports:
-      - 8080:8080
-    mem_limit: 512m
-    mem_reservation: 128M
-    environment:
-      QUARKUS_LAUNCH_DEVMODE: true
-      QUARKUS_DATASOURCE_JDBC_URL: jdbc:postgresql://postgres:5432/tasks
-
 
   postgres:
     image: postgres:14.1
@@ -55,3 +40,19 @@ services:
       - 80
     mem_limit: 512m
     mem_reservation: 128M
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ./src/main/docker/Dockerfile.jvm.multistaged
+    image: backend
+    depends_on:
+      - postgres
+    ports:
+      - 8080:8080
+    mem_limit: 512m
+    mem_reservation: 128M
+    environment:
+      QUARKUS_LAUNCH_DEVMODE: true
+      QUARKUS_DATASOURCE_JDBC_URL: jdbc:postgresql://postgres:5432/tasks
+
