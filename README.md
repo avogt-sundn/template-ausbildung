@@ -16,7 +16,7 @@ Vorbedingungen:
 
 - Du hast [Docker Desktop](docker.com) installiert (Windows oder MacOS)
 - Du hast ein Terminal mit einem shell prompt, um die folgenden Kommandozeilen eingeben zu können (Anleitung dazu [hier](README-terminal.md))
-- Du hast Java installiert
+- Du hast Java 17 installiert
 - Du hast Node installiert
 
 Zu Beginn jeder Arbeitssitzung führst Du diese Schritte aus:
@@ -30,6 +30,7 @@ Zu Beginn jeder Arbeitssitzung führst Du diese Schritte aus:
 - beginne die Java-Entwicklung mit dem Starten des Live Reload Modus:
 
     ````bash
+    cd backend
     ./mvnw quarkus:dev
     ````
 
@@ -38,6 +39,7 @@ Zu Beginn jeder Arbeitssitzung führst Du diese Schritte aus:
 - beginne die Angular-Entwicklung mit dem Starten des Live Reload Modus:
 
     ````bash
+    cd frontend
     npm install -g @angular/cli
     npm install
     ng serve
@@ -70,3 +72,27 @@ Falls Du in die Datenbank schauen willst:
     ports:
       - 8080:8080
     ````
+
+- Wenn du diese Fehlermeldung bekommst, dann prüfe die Umgebungsvariable JAVA_HOME. Diese muss auf das JDK 17 zeigen.
+
+Fehlermeldung:
+
+```bash
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:10 min
+[INFO] Finished at: 2023-04-05T15:06:39+02:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.quarkus.platform:quarkus-maven-plugin:2.16.5.Final:dev (default-cli) on project task-backend: Fatal error compiling: error: release version 17 not supported -> [Help 1]
+```
+
+Umgebungsvariable JAVA_HOME prüfen:
+
+```bash
+# unter Windows
+echo $env:JAVA_HOME
+
+# oder unter Linux:
+echo $JAVA_HOME
+```
