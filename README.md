@@ -14,13 +14,14 @@ Hier beschreiben wir die Schritte, die auszuführen sind, um Code live zu editie
 
 Vorbedingungen:
 
-- Du hast Docker Desktop installiert (Windows oder MacOS)
+- Du hast [Docker Desktop](docker.com) installiert (Windows oder MacOS)
 - Du hast ein Terminal mit einem shell prompt, um die folgenden Kommandozeilen eingeben zu können (Anleitung dazu [hier](README-terminal.md))
-- Du hast Java und Maven installiert
+- Du hast Java installiert
+- Du hast Node installiert
 
-Dann:
+Zu Beginn jeder Arbeitssitzung führst Du diese Schritte aus:
 
-- baue und starte alles mit:
+- baue und starte die notwendigen Docker container:
 
     ````bash
     docker compose up -d
@@ -29,10 +30,20 @@ Dann:
 - beginne die Java-Entwicklung mit dem Starten des Live Reload Modus:
 
     ````bash
-    mvn quarkus:remote-dev
+    ./mvnw quarkus:dev
     ````
 
-- rufe die web-Applikation im Browser auf unter
+  - die shell ist nun für weitere Eingaben blockiert, da hier das Log der Quarkus Anwendung ausgegben wird
+
+- beginne die Angular-Entwicklung mit dem Starten des Live Reload Modus:
+
+    ````bash
+    npm install -g @angular/cli
+    npm install
+    ng serve
+    ````
+
+- rufe die Web-Applikation im Browser auf unter
   - <http://localhost:4200>
 
 Falls Du in die Datenbank schauen willst:
