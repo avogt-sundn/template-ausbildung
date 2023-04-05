@@ -57,7 +57,7 @@ Falls Du in die Datenbank schauen willst:
 
 # troubleshooting
 
-- `2023-03-30 17:31:37,884 ERROR [io.qua.ver.htt.dep.dev.HttpRemoteDevClient] (Remote dev client thread) Remote dev request failed: java.net.ConnectException: Connection refused`
+`2023-03-30 17:31:37,884 ERROR [io.qua.ver.htt.dep.dev.HttpRemoteDevClient] (Remote dev client thread) Remote dev request failed: java.net.ConnectException: Connection refused`
 - prüfe dass du das Quarkus backend im browser unter http://localhost:8080 erreichst:
 - WENN NICHT:
   - prüfe dass du das Quarkus backend mit `docker compose up -d` gestartet hast
@@ -75,26 +75,30 @@ Falls Du in die Datenbank schauen willst:
       - 8080:8080
     ````
 
-- Wenn du diese Fehlermeldung bekommst, dann prüfe die Umgebungsvariable JAVA_HOME. Diese muss auf das JDK 17 zeigen.
+Falls der devcontainer nicht startet, dann prüfe die Proxy-Einstellungen von Docker Desktop. Setze in den Einstellungen den HTTP-Proxy auf `http://wwwproxy:80`, wenn du im S&N-Intranet bist:
 
-Fehlermeldung:
+![Docker Desktop Proxy Konfiguration](.img/docker-proxy-settings.png)
 
-```bash
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  01:10 min
-[INFO] Finished at: 2023-04-05T15:06:39+02:00
-[INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal io.quarkus.platform:quarkus-maven-plugin:2.16.5.Final:dev (default-cli) on project task-backend: Fatal error compiling: error: release version 17 not supported -> [Help 1]
-```
+Wenn du diese Fehlermeldung bekommst, dann prüfe die Umgebungsvariable JAVA_HOME. Diese muss auf das JDK 17 zeigen.
 
-Umgebungsvariable JAVA_HOME prüfen:
+- Fehlermeldung:
 
-```bash
-# unter Windows
-echo $env:JAVA_HOME
+    ```bash
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD FAILURE
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time:  01:10 min
+    [INFO] Finished at: 2023-04-05T15:06:39+02:00
+    [INFO] ------------------------------------------------------------------------
+    [ERROR] Failed to execute goal io.quarkus.platform:quarkus-maven-plugin:2.16.5.Final:dev (default-cli) on project task-backend: Fatal error compiling: error: release version 17 not supported -> [Help 1]
+    ```
 
-# oder unter Linux:
-echo $JAVA_HOME
-```
+- Umgebungsvariable JAVA_HOME prüfen:
+
+    ```bash
+    # unter Windows
+    echo $env:JAVA_HOME
+
+    # oder unter Linux:
+    echo $JAVA_HOME
+    ```
