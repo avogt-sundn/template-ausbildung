@@ -10,9 +10,12 @@ Dies ist ein monorepo, denn es fasst mehrere Teilprojekte in einem git repositor
 
 ## Wie beginne ich die Entwicklung
 
+Hier beschreiben wir die Schritte, die auszuführen sind, um Code live zu editieren und auszuprobieren.
+
 Vorbedingungen:
 
 - Du hast Docker Desktop installiert (Windows oder MacOS)
+- Du hast ein Terminal mit einem shell prompt, um die folgenden Kommandozeilen eingeben zu können (Anleitung dazu [hier](README-terminal.md))
 - Du hast Java und Maven installiert
 
 Dann:
