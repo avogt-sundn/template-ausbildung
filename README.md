@@ -4,8 +4,8 @@
 
 Dies ist ein monorepo, denn es fasst mehrere Teilprojekte in einem git repository zusammen.
 
-1. Angular Frontend Projekt (im Ordner `frontend`)
-2. Quarkus / Java Backend Projekt (im Ordner `backend`)
+1. Angular Frontend Projekt (im Ordner [frontend](./frontend/))
+2. Quarkus / Java Backend Projekt (im Ordner [backend](./backend))
 3. ein Docker Container setup mit einer PostgreSQL Datenbank
 
 ## Wie beginne ich die Entwicklung
@@ -14,11 +14,11 @@ Hier beschreiben wir die Schritte, die auszuführen sind, um Code live zu editie
 
 Vorbedingungen:
 
-- Du hast dieses git repository ge-clone-d [Hilfe dazu hier](README-git.md))
+- Du hast dieses git repository `geklont` ([Hilfe dazu hier](README-git.md))
 - Du hast [Docker Desktop](docker.com) installiert (Windows oder MacOS)
 - Du hast ein Terminal mit einem shell prompt, um die folgenden Kommandozeilen eingeben zu können (Anleitung dazu [hier](README-terminal.md))
-- Du hast Java 17 installiert
-- Du hast Node installiert
+- Du hast Java 17 installiert - oder benutzt Visual Studio Code DevContainers [Anleitung](README-devcontainers.md)
+- Du hast Node installiert - oder benutzt Visual Studio Code DevContainers [Anleitung](README-devcontainers.md)
 
 Hinweise:
   - > Den von dir im Terminal auszuführenden Dialog zeigen wir nun zusammen mit den zu erwartenden Ausgaben an. Die Ausgaben erkennst du durch den farblich abweichenden Druck und das vorangestellte Kommentarzeichen `#`.
