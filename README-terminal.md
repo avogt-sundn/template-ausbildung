@@ -62,7 +62,7 @@ Ein Terminal ist bereits vorinstalliert. Aufruf per
 
 ## MacOS iterm
 
-Unter MacOS empfehlen wir die Inatallation von iterm
+Unter MacOS empfehlen wir die Installation von `iterm2`
 
 * Download von der Webseite [iterm2](https://iterm2.com/) und anschließende Installation
 * <kbd>CMD</kbd>+<kbd>SPACE</kbd>, <kbd>iterm</kbd>
