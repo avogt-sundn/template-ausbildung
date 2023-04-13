@@ -28,6 +28,9 @@ services:
       PGADMIN_DEFAULT_PASSWORD: root
     ports:
       - 9008:80
+    depends_on:
+      postgres:
+        condition: service_healthy
     expose:
       - 80
     mem_limit: 512m

@@ -21,12 +21,13 @@ Vorbedingungen:
 - Du hast Node installiert - oder benutzt Visual Studio Code DevContainers [Anleitung](README-devcontainers.md)
 
 Hinweise:
-  - > Den von dir im Terminal auszuführenden Dialog zeigen wir nun zusammen mit den zu erwartenden Ausgaben an. Die Ausgaben erkennst du durch den farblich abweichenden Druck und das vorangestellte Kommentarzeichen `#`.
-  - > der prompt zeigt auch das aktuelle Arbeitsverzeichnis an, so wie hier:
-    >
-    > ```bash
-    >  # vscode ➜ /workspaces/template-ausbildung (main) $
-    > ```
+
+- > Den von dir im Terminal auszuführenden Dialog zeigen wir nun zusammen mit den zu erwartenden Ausgaben an. Die Ausgaben erkennst du durch den farblich abweichenden Druck und das vorangestellte Kommentarzeichen `#`.
+- > der prompt zeigt auch das aktuelle Arbeitsverzeichnis an, so wie hier:
+  >
+  > ```bash
+  >  # vscode ➜ /workspaces/template-ausbildung (main) $
+  > ```
 
 Zu Beginn jeder Arbeitssitzung führst Du diese Schritte aus:
 
@@ -43,7 +44,6 @@ Zu Beginn jeder Arbeitssitzung führst Du diese Schritte aus:
   ```
 
 - Beginne die Java-Entwicklung in einem neuen Terminal-Fenster
-
 
   - mit dem Starten des Live Reload Modus durch Eingabe im Terminal von:
 
@@ -110,10 +110,12 @@ Nachdem Du nun frontend wie backend gestartet hast, kannst Du die Web-Applikatio
 
 Solange wie die beiden Kommandos für frontend und backend laufen, werden Änderungen an den Quellcode Dateien automatisch übernommen und die Web-Applikation neu gebaut und geladen.
 
-*Viel Spaß beim Codieren!*
+_Viel Spaß beim Codieren!_
 
 ---
+
 ## Weitere Themen
+
 ### Datenbank
 
 Falls Du in die Datenbank schauen willst:
@@ -121,8 +123,30 @@ Falls Du in die Datenbank schauen willst:
 - im Datenbank-Tool muss die Datenbank verbindung eingerichtet werden.
   - [hier findest du die Anleitung dazu](backend/README-Datenbank.md)
 
+### Docker build
+
+Du kannst aus dem Quellcode für Docker Images bauen und die beiden Module als Docker Container starten. Alles was Du dafür tun musst, ist das `docker compose up -d` Kommando in dieser Form aufzurufen:
+
+```bash
+docker compose -f docker-compose-build.yml up
+```
+
+- am Build beteiligt sind diese Dateien
+
+  - [docker-compose-build.yml](./docker-compose-build.yml)
+  - [frontend/Dockerfile](./frontend/Dockerfile)
+  - [backend/src/main/docker/Dockerfile.jvm.multistaged](./backend/src/main/docker/Dockerfile.jvm.multistaged)
+
+- bei wiederholten Builds (nachdem Du Code geändert hast), ergänze noch um den Parameter `--build`
+
+  ```bash
+  docker compose -f docker-compose-build.yml up --build
+  ```
+
 ---
+
 ## Bei Problemen: troubleshooting
+
 ### 1. `2023-03-30 17:31:37,884 ERROR [io.qua.ver.htt.dep.dev.HttpRemoteDevClient] (Remote dev client thread) Remote dev request failed: java.net.ConnectException: Connection refused`
 
 - prüfe dass du das Quarkus backend im browser unter http://localhost:8080 erreichst:
@@ -142,6 +166,7 @@ Falls Du in die Datenbank schauen willst:
     ports:
       - 8080:8080
     ```
+
 ### 2. Falls der devcontainer nicht startet, dann prüfe die Proxy-Einstellungen von Docker Desktop. Setze in den Einstellungen den HTTP-Proxy auf `http://wwwproxy:80`, wenn du im S&N-Intranet bist:
 
 ![Docker Desktop Proxy Konfiguration](.img/docker-proxy-settings.png)
