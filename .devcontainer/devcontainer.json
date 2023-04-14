@@ -20,10 +20,6 @@
     "forwardPorts": [
         7071
     ],
-    // Set *default* container specific settings.json values on container create.
-    "settings": {
-        "terminal.integrated.shell.linux": "/usr/bin/zsh"
-    },
     "mounts": [
         "source=localcache,target=/home/vscode/.m2,type=volume",
         "source=${localEnv:HOME}/.vscode/.zsh_history,target=/home/vscode/.zsh_history,type=bind",
@@ -52,17 +48,18 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "dbaeumer.vscode-eslint",
-                "vscjava.vscode-java-pack",
-                "esbenp.prettier-vscode",
-                "mhutchie.git-graph",
-                "donjayamanne.githistory",
-                "waderyan.gitblame",
-                "SonarSource.sonarlint-vscode",
-                "DotJoshJohnson.xml",
-                "redhat.vscode-xml",
-                "redhat.vscode-quarkus"
-            ],
+				"dbaeumer.vscode-eslint",
+				"vscjava.vscode-java-pack",
+				"esbenp.prettier-vscode",
+				"mhutchie.git-graph",
+				"donjayamanne.githistory",
+				"waderyan.gitblame",
+				"SonarSource.sonarlint-vscode",
+				"DotJoshJohnson.xml",
+				"redhat.vscode-xml",
+				"redhat.vscode-quarkus",
+				"Angular.ng-template"
+			],
         }
     }
 }
