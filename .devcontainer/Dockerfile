@@ -35,6 +35,7 @@ ARG USER_GID=$USER_UID
 RUN apt-get update && curl -ssL https://raw.githubusercontent.com/microsoft/vscode-dev-containers/main/script-library/common-debian.sh -o /tmp/common-script.sh \
     && /bin/bash /tmp/common-script.sh "$INSTALL_ZSH" "$USERNAME" "$USER_UID" "$USER_GID" \
     && rm /tmp/common-script.sh
+ENV SHELL /bin/zsh
 #   END ------ install zsh as default shell
 
 #   BEGIN ------ install graalvm
@@ -62,4 +63,3 @@ RUN cd  /opt/ && git clone https://github.com/ahmetb/kubectx \
 
 # Chromium for unit tests
 RUN apt-get update && apt-get install -y chromium
-
