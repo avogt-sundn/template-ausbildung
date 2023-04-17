@@ -22,8 +22,9 @@
     ],
     "mounts": [
         "source=localcache,target=/home/vscode/.m2,type=volume",
+        "source=localcache,target=/home/vscode/.npm,type=volume",
         "source=${localEnv:HOME}/.vscode/.zsh_history,target=/home/vscode/.zsh_history,type=bind",
-        "source=${env:HOME}${env:USERPROFILE}/.kube,target=/home/vscode/.kube,type=bind"
+        "source=${localEnv:HOME}/.kube,target=/home/vscode/.kube,type=bind"
     ],
     // Add the IDs of extensions you want installed when the container is created.
     "containerEnv": {
@@ -33,8 +34,8 @@
         "DB_URL": "postgres"
     },
     // Use 'initializeCommand' to run commands on the host before container gets created.
-    "initializeCommand": "touch ${localEnv:HOME}/.vscode/.zsh_history;docker network create docker-default-network || echo Fine. Using existing network.",
-    "postCreateCommand": "npm install -g @angular/cli; sudo chmod ugo+w -R /home/vscode/.m2",
+    "initializeCommand": "docker network create docker-default-network || echo Fine. Using existing network.",
+    "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
     "runArgs": [
         "--network=docker-default-network",
         "--hostname=${localWorkspaceFolderBasename}"
