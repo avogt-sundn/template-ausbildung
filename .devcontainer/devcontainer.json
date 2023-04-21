@@ -31,7 +31,7 @@
         "GRAALVM_HOME": "/opt/mandrel",
         "JAVA_HOME": "/usr/lib/jvm/msopenjdk-current",
         "CHROME_BIN": "/usr/bin/chromium",
-        "DB_URL": "postgres"
+        "DB_HOST": "postgres"
     },
     // Use 'initializeCommand' to run commands on the host before container gets created.
     "initializeCommand": "docker network create docker-default-network || echo Fine. Using existing network.",
@@ -49,18 +49,18 @@
     "customizations": {
         "vscode": {
             "extensions": [
-				"dbaeumer.vscode-eslint",
-				"vscjava.vscode-java-pack",
-				"esbenp.prettier-vscode",
-				"mhutchie.git-graph",
-				"donjayamanne.githistory",
-				"waderyan.gitblame",
-				"SonarSource.sonarlint-vscode",
-				"DotJoshJohnson.xml",
-				"redhat.vscode-xml",
-				"redhat.vscode-quarkus",
-				"Angular.ng-template"
-			],
+                "dbaeumer.vscode-eslint",
+                "vscjava.vscode-java-pack",
+                "esbenp.prettier-vscode",
+                "mhutchie.git-graph",
+                "donjayamanne.githistory",
+                "waderyan.gitblame",
+                "SonarSource.sonarlint-vscode",
+                "DotJoshJohnson.xml",
+                "redhat.vscode-xml",
+                "redhat.vscode-quarkus",
+                "Angular.ng-template"
+            ],
         }
     }
 }
