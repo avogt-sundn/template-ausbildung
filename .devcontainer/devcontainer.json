@@ -42,9 +42,7 @@
     ], // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
     "remoteUser": "vscode",
     "features": {
-        "docker-from-docker": {
-            "docker-from-docker": "20.10"
-        }
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
     },
     "customizations": {
         "vscode": {
@@ -59,7 +57,8 @@
                 "DotJoshJohnson.xml",
                 "redhat.vscode-xml",
                 "redhat.vscode-quarkus",
-                "Angular.ng-template"
+                "Angular.ng-template",
+                "ms-azuretools.vscode-docker"
             ],
         }
     }
