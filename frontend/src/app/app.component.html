@@ -1,0 +1,6 @@
+<mat-toolbar color="primary">
+  <span>ToDo</span>
+  <a mat-button [routerLink]="['tasklist/dashboard']">Listen</a>
+  <a mat-button (click)="newList()">Neue Liste anlegen</a>
+</mat-toolbar>
+<router-outlet></router-outlet>
