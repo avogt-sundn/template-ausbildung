@@ -1,0 +1,46 @@
+version: "3.8"
+
+networks:
+  default:
+    name: docker-default-network
+
+services:
+  postgres:
+    extends:
+      file: docker-compose.yml
+      service: postgres
+
+  pgadmin:
+    extends:
+      file: docker-compose.yml
+      service: pgadmin
+
+  adminer:
+    extends:
+      file: docker-compose.yml
+      service: adminer
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ./src/main/docker/Dockerfile.jvm.multistaged
+    image: backend
+    depends_on:
+      - postgres
+    ports:
+      - 8080:8080
+    mem_limit: 512m
+    mem_reservation: 128M
+    environment:
+      QUARKUS_LAUNCH_DEVMODE: true
+      QUARKUS_DATASOURCE_JDBC_URL: jdbc:postgresql://postgres:5432/tasks
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: frontend
+    ports:
+      - 8088:80
+    mem_limit: 128m
+    mem_reservation: 32m
