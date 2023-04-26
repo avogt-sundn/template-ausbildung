@@ -62,4 +62,4 @@ RUN cd  /opt/ && git clone https://github.com/ahmetb/kubectx \
     && ln -s /opt/kubectx/kubens /usr/local/bin/kubens
 
 # Chromium for unit tests
-RUN apt-get update && apt-get install -y chromium
+###RUN apt-get update && apt-get install -y chromium
