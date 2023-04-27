@@ -37,11 +37,14 @@ Die Powershell ist bereits installiert.
 WSL2, das Windows-Subsystem für Linux, muss zunächst installiert werden:
 
 * die [Microsoft Anleitung für WSL2 Installation](https://learn.microsoft.com/de-de/windows/wsl/install) umfasst diese Schritte:
-  * `wsl --install`
-  * `wsl --set-default-version 2`
   * `wsl --install -d Ubuntu`
+  * `wsl --set-default-version 2`
+  * `wsl --set-default Ubuntu`
 
+  * *der Rechner muss jetzt neu gestartet werden*
   > Wahrscheinlich fordert Windows die Installation von Updates auf. Diese müssen ausgeführt werden.
+
+* Nach dem Neustart geht es weiter mit der Installation von Ubuntu durch Öffnen des Windows Terminal.
 
 ## Windows Terminal
 
@@ -49,9 +52,35 @@ Eine modernere Version der Eingabeaufforderung ist das *Windows Terminal* von Mi
 
 * [Windows Terminal](https://learn.microsoft.com/de-de/windows/terminal/)
 * Aufruf mit <kbd>WIN</kbd>, <kbd>terminal</kbd>
+  * voreingestellt startet nun die Powershell
 
----
+## Ubuntu Shell unter Windows
 
+In jedem Terminal (Eingabeaufforderung, Powershell, Windows Terminal) kann nun die Ubuntu Shell gestartet werden durch Eingabe von `wsl.exe`.
+* Beim ersten Start nach Installation der Ubuntu Distribution durch `wsl --install -d Ubuntu` wird die Installation von Ubuntu zunächst abgeschlossen
+
+  * ```bash
+    wsl.exe
+    # Ubuntu wird gestartet...
+    # Installing, this may take a few minutes...
+    # Please create a default UNIX user account. The username does not need to match your Windows username.
+    # For more information visit: https://aka.ms/wslusers
+    # Enter new UNIX username:
+    ```
+    * der `UNIX username` wird nur lokal verwendet und kann deshalb mit einem trivialen Kennwort ausgestattet werden.
+
+  * Dieser `username` mit Kennwort (`"password"`) wird beim Ausführen von Linux-Administrator-Kommandos (eingeleitet durch `sudo`) benötigt:
+    * aktualisieren des Ubuntu mit:
+        ```bash
+        sudo apt update
+        # [sudo] password for winman:
+        # Reading package lists...
+        # [..]
+        sudo apt upgrade -y
+        # [..]
+        ```
+
+----
 Unter MacOS sind Terminal und eine linux-artige Shell bereits vorhanden.
 
 ## MacOS Terminal
