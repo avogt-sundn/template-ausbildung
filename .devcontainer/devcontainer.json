@@ -22,9 +22,9 @@
     ],
     "mounts": [
         "source=localcache,target=/home/vscode/.m2,type=volume",
-        "source=localcache,target=/home/vscode/.npm,type=volume",
-        "source=${localEnv:HOME}/.vscode/.zsh_history,target=/home/vscode/.zsh_history,type=bind",
-        "source=${localEnv:HOME}/.kube,target=/home/vscode/.kube,type=bind"
+        "source=localcache,target=/home/vscode/.npm,type=volume"
+//        "source=${localEnv:HOME}/.vscode/.zsh_history,target=/home/vscode/.zsh_history,type=bind",
+//        "source=${localEnv:HOME}/.kube,target=/home/vscode/.kube,type=bind"
     ],
     // Add the IDs of extensions you want installed when the container is created.
     "containerEnv": {
