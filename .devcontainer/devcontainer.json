@@ -35,7 +35,7 @@
     },
     // Use 'initializeCommand' to run commands on the host before container gets created.
     "initializeCommand": "docker network create docker-default-network || echo Fine. Using existing network.",
-    "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
+    "postStartCommand": "./.devcontainer/postStartCommand.sh",
     "runArgs": [
         "--network=docker-default-network",
         "--hostname=${localWorkspaceFolderBasename}"

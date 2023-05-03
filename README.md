@@ -15,7 +15,7 @@ Hier beschreiben wir die Schritte, die auszuführen sind, um Code live zu editie
 Vorbedingungen:
 
 - Du hast dieses git repository `geklont` ([Hilfe dazu hier](README-git.md))
-- Du hast [Docker Desktop](docker.com) installiert (Windows oder MacOS)
+- Du hast [Docker Desktop](docker.com) installiert (Windows oder MacOS) oder Docker als Linux Paket unter WSL2 auf Windows 10/11 installiert ([Anleitung](./README-docker.md))
 - Du hast ein Terminal mit einem shell prompt, um die folgenden Kommandozeilen eingeben zu können (Anleitung dazu [hier](README-terminal.md))
 - Du hast Java 17 installiert - oder benutzt Visual Studio Code DevContainers [Anleitung](README-devcontainers.md)
 - Du hast Node installiert - oder benutzt Visual Studio Code DevContainers [Anleitung](README-devcontainers.md)
