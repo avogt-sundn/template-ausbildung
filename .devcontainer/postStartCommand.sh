@@ -5,7 +5,7 @@ DIR="$( dirname -- "$BASH_SOURCE"; )";
 #### maven mirror
 
 MVN_MIRROR=https://nexus.localhost.direct/repository/maven-public/
-curl -s $MVN_MIRROR 2>&1 >/dev/null
+curl -fs $MVN_MIRROR 2>&1 >/dev/null
 if [ $? -eq 0 ]; then
     echo "-- maven mirror '$MVN_MIRROR' ACTIVE"
     cp -v $DIR/maven-settings.xml ~/.m2/settings.xml
@@ -20,7 +20,7 @@ fi
 ### npm mirror
 
 NPM_MIRROR=https://nexus.localhost.direct/repository/npm/
-curl -s $NPM_MIRROR 2>&1 >/dev/null
+curl -fs $NPM_MIRROR 2>&1 >/dev/null
 if [ $? -eq 0 ]; then
     echo "-- npm mirror '$NPM_MIRROR' ACTIVE!"
     npm config set registry $NPM_MIRROR
